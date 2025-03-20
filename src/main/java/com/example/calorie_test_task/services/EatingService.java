@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.List;
 
+import static com.example.calorie_test_task.consts.ExceptionConsts.USER_NOT_FOUND_EXCEPTION;
+
 @Service
 public class EatingService {
     private final EatingRepository eatingRepository;
@@ -25,8 +27,8 @@ public class EatingService {
         this.dishRepository = dishRepository;
     }
 
-    public void createEating(Integer userId, EatingRequestDto dto) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new BadRequestException("User doesn't exist"));
+    public void createEating(String email, EatingRequestDto dto) {
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new BadRequestException(USER_NOT_FOUND_EXCEPTION));
 
         Eating eating = new Eating();
 

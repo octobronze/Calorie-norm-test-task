@@ -43,4 +43,28 @@ public class Dish {
     public void setCarbohydratesGrams(Double carbohydratesGrams) {
         this.carbohydratesGrams = carbohydratesGrams;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Double getCalories() {
+        return calories;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Double getProteinsGrams() {
+        return proteinsGrams;
+    }
+
+    public Double getFatsGrams() {
+        return fatsGrams;
+    }
+
+    public Double getCarbohydratesGrams() {
+        return carbohydratesGrams;
+    }
 }

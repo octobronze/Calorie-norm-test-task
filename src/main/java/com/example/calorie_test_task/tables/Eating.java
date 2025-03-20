@@ -44,4 +44,20 @@ public class Eating {
     public void setDishes(Set<Dish> dishes) {
         this.dishes = dishes;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Set<Dish> getDishes() {
+        return dishes;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
 }

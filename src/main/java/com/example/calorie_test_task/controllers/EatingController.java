@@ -14,9 +14,9 @@ public class EatingController {
         this.eatingService = eatingService;
     }
     @PostMapping
-    public ResponseEntity<String> createEating(@RequestHeader(name = "userId") Integer userId,
+    public ResponseEntity<String> createEating(@RequestHeader(name = "email") String email,
                                                @RequestBody EatingRequestDto dto) {
-        eatingService.createEating(userId, dto);
+        eatingService.createEating(email, dto);
 
         return ResponseEntity.ok("ok");
     }

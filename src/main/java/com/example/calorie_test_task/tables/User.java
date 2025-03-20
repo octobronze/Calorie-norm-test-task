@@ -56,4 +56,36 @@ public class User {
     public void setWeight(Double weight) {
         this.weight = weight;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public Double getCalorieDayNorm() {
+        return calorieDayNorm;
+    }
+
+    public UserGoalEnum getUserGoal() {
+        return userGoal;
+    }
 }

@@ -1,12 +1,12 @@
 package com.example.calorie_test_task.controllers;
 
 import com.example.calorie_test_task.dtos.DishRequestDto;
+import com.example.calorie_test_task.dtos.DishResponseDto;
 import com.example.calorie_test_task.services.DishService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(name = "/dish")
@@ -22,5 +22,10 @@ public class DishController {
         dishService.createDish(dto);
 
         return ResponseEntity.ok("ok");
+    }
+
+    @GetMapping
+    public ResponseEntity<List<DishResponseDto>> getAllDishes() {
+        return ResponseEntity.ok(dishService.getAllDishes());
     }
 }
