@@ -1,16 +1,18 @@
 package com.example.calorie_test_task.dtos;
 
+import java.math.BigDecimal;
+
 public class EatingSuccessReportResponseDto {
-    private Double calorieSum;
-    private Double goalCalorieSum;
+    private BigDecimal calorieSum;
+    private BigDecimal goalCalorieSum;
     private Integer goalIndex;
     private Boolean isSuccess;
 
-    public void setCalorieSum(Double calorieSum) {
+    public void setCalorieSum(BigDecimal calorieSum) {
         this.calorieSum = calorieSum;
     }
 
-    public void setGoalCalorieSum(Double goalCalorieSum) {
+    public void setGoalCalorieSum(BigDecimal goalCalorieSum) {
         this.goalCalorieSum = goalCalorieSum;
     }
 

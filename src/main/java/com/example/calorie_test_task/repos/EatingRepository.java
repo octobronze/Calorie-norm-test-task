@@ -9,6 +9,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface EatingRepository extends JpaRepository<Eating, Integer> {
-    List<Eating> findAllByDateAndUserAndOrderByTimeAsc(User user, LocalDate date);
+    List<Eating> findAllByUserAndDateOrderByTimeAsc(User user, LocalDate date);
     List<Eating> findAllByUser(User user, Sort sort);
 }

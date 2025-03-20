@@ -2,6 +2,8 @@ package com.example.calorie_test_task.tables;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Table(name = "dish")
 @Entity
 public class Dish {
@@ -12,35 +14,35 @@ public class Dish {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "calories")
-    private Double calories;
+    @Column(name = "calories", nullable = false, precision = 8, scale = 2)
+    private BigDecimal calories;
 
-    @Column(name = "proteins_grams")
-    private Double proteinsGrams;
+    @Column(name = "proteins_grams", precision = 8, scale = 2)
+    private BigDecimal proteinsGrams;
 
-    @Column(name = "fats_grams")
-    private Double fatsGrams;
+    @Column(name = "fats_grams", precision = 8, scale = 2)
+    private BigDecimal fatsGrams;
 
-    @Column(name = "carbohydrates_grams")
-    private Double carbohydratesGrams;
+    @Column(name = "carbohydrates_grams", precision = 8, scale = 2)
+    private BigDecimal carbohydratesGrams;
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setCalories(Double calories) {
+    public void setCalories(BigDecimal calories) {
         this.calories = calories;
     }
 
-    public void setProteinsGrams(Double proteinsGrams) {
+    public void setProteinsGrams(BigDecimal proteinsGrams) {
         this.proteinsGrams = proteinsGrams;
     }
 
-    public void setFatsGrams(Double fatsGrams) {
+    public void setFatsGrams(BigDecimal fatsGrams) {
         this.fatsGrams = fatsGrams;
     }
 
-    public void setCarbohydratesGrams(Double carbohydratesGrams) {
+    public void setCarbohydratesGrams(BigDecimal carbohydratesGrams) {
         this.carbohydratesGrams = carbohydratesGrams;
     }
 
@@ -48,7 +50,7 @@ public class Dish {
         return id;
     }
 
-    public Double getCalories() {
+    public BigDecimal getCalories() {
         return calories;
     }
 
@@ -56,15 +58,15 @@ public class Dish {
         return name;
     }
 
-    public Double getProteinsGrams() {
+    public BigDecimal getProteinsGrams() {
         return proteinsGrams;
     }
 
-    public Double getFatsGrams() {
+    public BigDecimal getFatsGrams() {
         return fatsGrams;
     }
 
-    public Double getCarbohydratesGrams() {
+    public BigDecimal getCarbohydratesGrams() {
         return carbohydratesGrams;
     }
 }

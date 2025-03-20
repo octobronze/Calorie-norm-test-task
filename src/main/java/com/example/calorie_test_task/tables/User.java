@@ -4,8 +4,10 @@ import com.example.calorie_test_task.enums.UserGoalEnum;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Formula;
 
+import java.math.BigDecimal;
+
 @Entity
-@Table(name = "user")
+@Table(name = "\"user\"")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,18 +22,18 @@ public class User {
     @Column(name = "age", nullable = false)
     private Integer age;
 
-    @Column(name = "weight", nullable = false)
-    private Double weight;
+    @Column(name = "weight", nullable = false, precision = 8, scale = 2)
+    private BigDecimal weight;
 
-    @Column(name = "height", nullable = false)
-    private Double height;
+    @Column(name = "height", nullable = false, precision = 8, scale = 2)
+    private BigDecimal height;
 
-    @Column(name = "user_goal_id")
+    @Column(name = "user_goal_id", nullable = false)
     @Enumerated(value = EnumType.ORDINAL)
     private UserGoalEnum userGoal;
 
     @Formula("88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * ((double) age))")
-    private Double calorieDayNorm;
+    private BigDecimal calorieDayNorm;
 
     public void setName(String name) {
         this.name = name;
@@ -45,7 +47,7 @@ public class User {
         this.age = age;
     }
 
-    public void setHeight(Double height) {
+    public void setHeight(BigDecimal height) {
         this.height = height;
     }
 
@@ -53,7 +55,7 @@ public class User {
         this.userGoal = userGoal;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(BigDecimal weight) {
         this.weight = weight;
     }
 
@@ -73,15 +75,15 @@ public class User {
         return email;
     }
 
-    public Double getHeight() {
+    public BigDecimal getHeight() {
         return height;
     }
 
-    public Double getWeight() {
+    public BigDecimal getWeight() {
         return weight;
     }
 
-    public Double getCalorieDayNorm() {
+    public BigDecimal getCalorieDayNorm() {
         return calorieDayNorm;
     }
 

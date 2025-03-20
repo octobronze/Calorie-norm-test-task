@@ -1,12 +1,14 @@
 package com.example.calorie_test_task.dtos;
 
+import java.math.BigDecimal;
+
 public class DishResponseDto {
     private Integer id;
     private String name;
-    private Double calories;
-    private Double proteinsGrams;
-    private Double fatsGrams;
-    private Double carbohydratesGrams;
+    private BigDecimal calories;
+    private BigDecimal proteinsGrams;
+    private BigDecimal fatsGrams;
+    private BigDecimal carbohydratesGrams;
 
 
     public void setId(Integer id) {
@@ -17,19 +19,19 @@ public class DishResponseDto {
         this.name = name;
     }
 
-    public void setCalories(Double calories) {
+    public void setCalories(BigDecimal calories) {
         this.calories = calories;
     }
 
-    public void setCarbohydratesGrams(Double carbohydratesGrams) {
+    public void setCarbohydratesGrams(BigDecimal carbohydratesGrams) {
         this.carbohydratesGrams = carbohydratesGrams;
     }
 
-    public void setFatsGrams(Double fatsGrams) {
+    public void setFatsGrams(BigDecimal fatsGrams) {
         this.fatsGrams = fatsGrams;
     }
 
-    public void setProteinsGrams(Double proteinsGrams) {
+    public void setProteinsGrams(BigDecimal proteinsGrams) {
         this.proteinsGrams = proteinsGrams;
     }
 }

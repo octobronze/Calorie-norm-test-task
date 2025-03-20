@@ -1,14 +1,16 @@
 package com.example.calorie_test_task.dtos;
 
+import java.math.BigDecimal;
+
 public class UserResponseDto {
     private Integer id;
     private String name;
     private String email;
     private Integer age;
-    private Double weight;
-    private Double height;
+    private BigDecimal weight;
+    private BigDecimal height;
     private Integer userGoalIndex;
-    private Double calorieDayNorm;
+    private BigDecimal calorieDayNorm;
 
     public void setId(Integer id) {
         this.id = id;
@@ -18,11 +20,11 @@ public class UserResponseDto {
         this.name = name;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(BigDecimal weight) {
         this.weight = weight;
     }
 
-    public void setHeight(Double height) {
+    public void setHeight(BigDecimal height) {
         this.height = height;
     }
 
@@ -34,7 +36,7 @@ public class UserResponseDto {
         this.email = email;
     }
 
-    public void setCalorieDayNorm(Double calorieDayNorm) {
+    public void setCalorieDayNorm(BigDecimal calorieDayNorm) {
         this.calorieDayNorm = calorieDayNorm;
     }
 

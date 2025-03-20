@@ -33,7 +33,7 @@ public class ReportService {
 
     public EatingReportResponseDto getEatingReportByDate(String email, LocalDate date) {
         User user = userRepository.findByEmail(email).orElseThrow(() -> new BadRequestException(USER_NOT_FOUND_EXCEPTION));
-        List<Eating> eatingList = eatingRepository.findAllByDateAndUserAndOrderByTimeAsc(user, date);
+        List<Eating> eatingList = eatingRepository.findAllByUserAndDateOrderByTimeAsc(user, date);
 
         return getEatingReportByEatingList(eatingList);
     }
@@ -54,9 +54,7 @@ public class ReportService {
 
         List<EatingReportByDateResponseDto> responseDtoList = new ArrayList<>();
 
-        dateToEatingListMap.entrySet().forEach((entry) -> {
-            LocalDate date = entry.getKey();
-            List<Eating> eatingListInner = entry.getValue();
+        dateToEatingListMap.forEach((date, eatingListInner) -> {
 
             EatingReportByDateResponseDto responseDto = new EatingReportByDateResponseDto(getEatingReportByEatingList(eatingList));
 
@@ -73,7 +71,7 @@ public class ReportService {
         EatingSuccessReportResponseDto responseDto = new EatingSuccessReportResponseDto();
 
         User user = userRepository.findByEmail(email).orElseThrow(() -> new BadRequestException(USER_NOT_FOUND_EXCEPTION));
-        List<Eating> eatingList = eatingRepository.findAllByDateAndUserAndOrderByTimeAsc(user, date);
+        List<Eating> eatingList = eatingRepository.findAllByUserAndDateOrderByTimeAsc(user, date);
 
         EatingReportResponseDto eatingReportResponseDto = getEatingReportByEatingList(eatingList);
 
@@ -82,9 +80,9 @@ public class ReportService {
         responseDto.setGoalIndex(user.getUserGoal().ordinal());
 
         switch (user.getUserGoal()) {
-            case MASS_GAIN -> responseDto.setSuccess(eatingReportResponseDto.getCalorieSum() > user.getCalorieDayNorm());
-            case MAINTENANCE -> responseDto.setSuccess(eatingReportResponseDto.getCalorieSum() == user.getCalorieDayNorm());
-            case WEIGHT_LOSS -> responseDto.setSuccess(eatingReportResponseDto.getCalorieSum() < user.getCalorieDayNorm());
+            case MASS_GAIN -> responseDto.setSuccess(eatingReportResponseDto.getCalorieSum().compareTo(user.getCalorieDayNorm()) > 0);
+            case MAINTENANCE -> responseDto.setSuccess(eatingReportResponseDto.getCalorieSum().compareTo(user.getCalorieDayNorm()) == 0);
+            case WEIGHT_LOSS -> responseDto.setSuccess(eatingReportResponseDto.getCalorieSum().compareTo(user.getCalorieDayNorm()) < 0);
         }
 
         return responseDto;

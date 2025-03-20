@@ -13,14 +13,14 @@ public class Eating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     @ManyToOne
     private User user;
 
-    @Column(name = "date")
+    @Column(name = "date", nullable = false)
     private LocalDate date;
 
-    @Column(name = "time")
+    @Column(name = "time", nullable = false)
     private LocalTime time;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

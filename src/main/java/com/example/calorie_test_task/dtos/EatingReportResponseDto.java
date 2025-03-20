@@ -1,10 +1,11 @@
 package com.example.calorie_test_task.dtos;
 
+import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.util.List;
 
 public class EatingReportResponseDto {
-    private Double calorieSum;
+    private BigDecimal calorieSum;
     private List<EatingResponseDto> eatingList;
 
 
@@ -12,21 +13,21 @@ public class EatingReportResponseDto {
         this.eatingList = eatingList;
     }
 
-    protected void setCalorieSum(Double calorieSum) {
+    protected void setCalorieSum(BigDecimal calorieSum) {
         this.calorieSum = calorieSum;
     }
 
     public void calculateAndSetCalorieSum() {
-        Double calorieSum = 0.0;
+        BigDecimal calorieSum = BigDecimal.ZERO;
 
         for (var eating : eatingList) {
-            calorieSum += eating.calorieSum;
+            calorieSum.add(eating.calorieSum);
         }
 
         this.calorieSum = calorieSum;
     }
 
-    public Double getCalorieSum() {
+    public BigDecimal getCalorieSum() {
         return calorieSum;
     }
 
@@ -38,7 +39,7 @@ public class EatingReportResponseDto {
         private Integer id;
         private LocalTime time;
         private List<DishResponseDto> dishList;
-        private Double calorieSum;
+        private BigDecimal calorieSum;
 
         public void setId(Integer id) {
             this.id = id;
@@ -53,10 +54,10 @@ public class EatingReportResponseDto {
         }
 
         public void calculateAndSetCalorieSum() {
-            Double calorieSum = 0.0;
+            BigDecimal calorieSum = BigDecimal.ZERO;
 
             for (var dish : dishList) {
-                calorieSum += dish.calories;
+                calorieSum.add(dish.calories);
             }
 
             this.calorieSum = calorieSum;
@@ -65,7 +66,7 @@ public class EatingReportResponseDto {
         public static class DishResponseDto {
             private Integer id;
             private String name;
-            private Double calories;
+            private BigDecimal calories;
 
             public void setId(Integer id) {
                 this.id = id;
@@ -75,7 +76,7 @@ public class EatingReportResponseDto {
                 this.name = name;
             }
 
-            public void setCalories(Double calories) {
+            public void setCalories(BigDecimal calories) {
                 this.calories = calories;
             }
         }

@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
+import java.math.BigDecimal;
+
 public class UserRequestDto {
     @NotBlank(message = "name cannot be empty")
     private String name;
@@ -15,17 +17,17 @@ public class UserRequestDto {
     private Integer age;
     @Min(value = 0, message = "weight cannot be less than 0")
     @Max(value = 999, message = "weight cannot be that big")
-    private Double weight;
+    private BigDecimal weight;
     @Min(value = 0, message = "height cannot be less than 0")
     @DecimalMax(value = "300.1", message = "height cannot be that big")
-    private Double height;
+    private BigDecimal height;
     private Integer goalIndex;
 
-    public Double getWeight() {
+    public BigDecimal getWeight() {
         return weight;
     }
 
-    public Double getHeight() {
+    public BigDecimal getHeight() {
         return height;
     }
 

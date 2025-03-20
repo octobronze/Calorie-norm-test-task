@@ -3,35 +3,37 @@ package com.example.calorie_test_task.dtos;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
+import java.math.BigDecimal;
+
 public class DishRequestDto {
     @NotBlank
     private String name;
     @Min(value = 0, message = "calories cannot be less than 0")
-    private Double calories;
+    private BigDecimal calories;
     @Min(value = 0, message = "proteinsGrams cannot be less than 0")
-    private Double proteinsGrams;
+    private BigDecimal proteinsGrams;
     @Min(value = 0, message = "fatsGrams cannot be less than 0")
-    private Double fatsGrams;
+    private BigDecimal fatsGrams;
     @Min(value = 0, message = "carbohydratesGrams cannot be less than 0")
-    private Double carbohydratesGrams;
+    private BigDecimal carbohydratesGrams;
 
     public String getName() {
         return name;
     }
 
-    public Double getCalories() {
+    public BigDecimal getCalories() {
         return calories;
     }
 
-    public Double getCarbohydratesGrams() {
+    public BigDecimal getCarbohydratesGrams() {
         return carbohydratesGrams;
     }
 
-    public Double getFatsGrams() {
+    public BigDecimal getFatsGrams() {
         return fatsGrams;
     }
 
-    public Double getProteinsGrams() {
+    public BigDecimal getProteinsGrams() {
         return proteinsGrams;
     }
 }
