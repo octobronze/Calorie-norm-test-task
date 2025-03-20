@@ -12,15 +12,35 @@ public class Dish {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "calorie_amount")
-    private Double calorieAmount;
+    @Column(name = "calories")
+    private Double calories;
 
-    @Column(name = "prtoeins_percent")
-    private Double proteins_percent;
+    @Column(name = "proteins_grams")
+    private Double proteinsGrams;
 
-    @Column(name = "fats_percent")
-    private Double fats_percent;
+    @Column(name = "fats_grams")
+    private Double fatsGrams;
 
-    @Column(name = "carbohydrates_percent")
-    private Double carbohydratesPercent;
+    @Column(name = "carbohydrates_grams")
+    private Double carbohydratesGrams;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCalories(Double calories) {
+        this.calories = calories;
+    }
+
+    public void setProteinsGrams(Double proteinsGrams) {
+        this.proteinsGrams = proteinsGrams;
+    }
+
+    public void setFatsGrams(Double fatsGrams) {
+        this.fatsGrams = fatsGrams;
+    }
+
+    public void setCarbohydratesGrams(Double carbohydratesGrams) {
+        this.carbohydratesGrams = carbohydratesGrams;
+    }
 }
