@@ -2,7 +2,7 @@ package com.example.calorie_test_task.controllers;
 
 import com.example.calorie_test_task.dtos.EatingReportByDateResponseDto;
 import com.example.calorie_test_task.dtos.EatingReportResponseDto;
-import com.example.calorie_test_task.dtos.EatingSuccessReportResponseDto;
+import com.example.calorie_test_task.dtos.EatingGoalReportResponseDto;
 import com.example.calorie_test_task.services.ReportService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +26,9 @@ public class ReportController {
     }
 
     @GetMapping("/eating/success/{date}")
-    public ResponseEntity<EatingSuccessReportResponseDto> getEatingSuccessReportByDate(@RequestHeader(name = "email") String email,
-                                                                                       @PathVariable(name = "date") LocalDate date) {
-        return ResponseEntity.ok(reportService.getEatingSuccessReportByDate(email, date));
+    public ResponseEntity<EatingGoalReportResponseDto> getEatingGoalReportByDate(@RequestHeader(name = "email") String email,
+                                                                                 @PathVariable(name = "date") LocalDate date) {
+        return ResponseEntity.ok(reportService.getEatingGoalReportByDate(email, date));
     }
 
     @GetMapping("/eating")

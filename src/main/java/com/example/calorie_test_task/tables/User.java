@@ -32,7 +32,7 @@ public class User {
     @Enumerated(value = EnumType.ORDINAL)
     private UserGoalEnum userGoal;
 
-    @Formula("88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * ((double) age))")
+    @Formula("88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * (age::numeric))")
     private BigDecimal calorieDayNorm;
 
     public void setName(String name) {
@@ -57,6 +57,10 @@ public class User {
 
     public void setWeight(BigDecimal weight) {
         this.weight = weight;
+    }
+
+    public void setCalorieDayNorm(BigDecimal calorieDayNorm) {
+        this.calorieDayNorm = calorieDayNorm;
     }
 
     public Integer getId() {

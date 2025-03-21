@@ -2,7 +2,7 @@ package com.example.calorie_test_task.services;
 
 import com.example.calorie_test_task.dtos.EatingReportByDateResponseDto;
 import com.example.calorie_test_task.dtos.EatingReportResponseDto;
-import com.example.calorie_test_task.dtos.EatingSuccessReportResponseDto;
+import com.example.calorie_test_task.dtos.EatingGoalReportResponseDto;
 import com.example.calorie_test_task.exceptions.BadRequestException;
 import com.example.calorie_test_task.other.Utils;
 import com.example.calorie_test_task.repos.EatingRepository;
@@ -56,7 +56,7 @@ public class ReportService {
 
         dateToEatingListMap.forEach((date, eatingListInner) -> {
 
-            EatingReportByDateResponseDto responseDto = new EatingReportByDateResponseDto(getEatingReportByEatingList(eatingList));
+            EatingReportByDateResponseDto responseDto = new EatingReportByDateResponseDto(getEatingReportByEatingList(eatingListInner));
 
             responseDto.setDate(date);
 
@@ -66,9 +66,9 @@ public class ReportService {
         return Utils.getPageImpl(responseDtoList, pageIndex, pageSize);
     }
 
-    public EatingSuccessReportResponseDto getEatingSuccessReportByDate(String email, LocalDate date) {
+    public EatingGoalReportResponseDto getEatingGoalReportByDate(String email, LocalDate date) {
 
-        EatingSuccessReportResponseDto responseDto = new EatingSuccessReportResponseDto();
+        EatingGoalReportResponseDto responseDto = new EatingGoalReportResponseDto();
 
         User user = userRepository.findByEmail(email).orElseThrow(() -> new BadRequestException(USER_NOT_FOUND_EXCEPTION));
         List<Eating> eatingList = eatingRepository.findAllByUserAndDateOrderByTimeAsc(user, date);
@@ -112,6 +112,8 @@ public class ReportService {
             eatingDto.setTime(eating.getTime());
             eatingDto.setDishList(dishDtoList);
             eatingDto.calculateAndSetCalorieSum();
+
+            eatingDtoList.add(eatingDto);
         }
 
         responseDto.setEatingList(eatingDtoList);

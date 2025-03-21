@@ -21,7 +21,7 @@ public class EatingReportResponseDto {
         BigDecimal calorieSum = BigDecimal.ZERO;
 
         for (var eating : eatingList) {
-            calorieSum.add(eating.calorieSum);
+            calorieSum = calorieSum.add(eating.calorieSum);
         }
 
         this.calorieSum = calorieSum;
@@ -57,7 +57,7 @@ public class EatingReportResponseDto {
             BigDecimal calorieSum = BigDecimal.ZERO;
 
             for (var dish : dishList) {
-                calorieSum.add(dish.calories);
+                calorieSum = calorieSum.add(dish.calories);
             }
 
             this.calorieSum = calorieSum;

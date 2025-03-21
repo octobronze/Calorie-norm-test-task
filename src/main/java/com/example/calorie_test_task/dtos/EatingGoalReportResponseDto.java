@@ -2,7 +2,7 @@ package com.example.calorie_test_task.dtos;
 
 import java.math.BigDecimal;
 
-public class EatingSuccessReportResponseDto {
+public class EatingGoalReportResponseDto {
     private BigDecimal calorieSum;
     private BigDecimal goalCalorieSum;
     private Integer goalIndex;
@@ -22,5 +22,9 @@ public class EatingSuccessReportResponseDto {
 
     public void setSuccess(Boolean success) {
         isSuccess = success;
+    }
+
+    public Boolean getSuccess() {
+        return isSuccess;
     }
 }
