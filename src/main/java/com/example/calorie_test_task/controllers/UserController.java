@@ -3,6 +3,7 @@ package com.example.calorie_test_task.controllers;
 import com.example.calorie_test_task.dtos.UserRequestDto;
 import com.example.calorie_test_task.dtos.UserResponseDto;
 import com.example.calorie_test_task.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createUser(@RequestBody UserRequestDto dto) {
+    public ResponseEntity<String> createUser(@RequestBody @Valid UserRequestDto dto) {
         userService.createUser(dto);
 
         return ResponseEntity.ok("ok");

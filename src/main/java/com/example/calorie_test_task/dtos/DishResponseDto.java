@@ -34,4 +34,28 @@ public class DishResponseDto {
     public void setProteinsGrams(BigDecimal proteinsGrams) {
         this.proteinsGrams = proteinsGrams;
     }
+
+    public BigDecimal getCalories() {
+        return calories;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public BigDecimal getCarbohydratesGrams() {
+        return carbohydratesGrams;
+    }
+
+    public BigDecimal getFatsGrams() {
+        return fatsGrams;
+    }
+
+    public BigDecimal getProteinsGrams() {
+        return proteinsGrams;
+    }
 }

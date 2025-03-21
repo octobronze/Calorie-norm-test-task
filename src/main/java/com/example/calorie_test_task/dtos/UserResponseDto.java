@@ -43,4 +43,36 @@ public class UserResponseDto {
     public void setUserGoalIndex(Integer userGoalIndex) {
         this.userGoalIndex = userGoalIndex;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public BigDecimal getCalorieDayNorm() {
+        return calorieDayNorm;
+    }
+
+    public BigDecimal getHeight() {
+        return height;
+    }
+
+    public BigDecimal getWeight() {
+        return weight;
+    }
+
+    public Integer getUserGoalIndex() {
+        return userGoalIndex;
+    }
 }

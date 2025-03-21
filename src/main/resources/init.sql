@@ -3,7 +3,7 @@ create database calorie_norm;
 \c calorie_norm;
 
 CREATE TABLE "dish" (
-	"id" INTEGER NOT NULL,
+	"id" SERIAL NOT NULL,
 	"calories" DECIMAL(8,2) NOT NULL,
 	"carbohydrates_grams" DECIMAL(8,2) NULL DEFAULT NULL,
 	"fats_grams" DECIMAL(8,2) NULL DEFAULT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE "dish" (
 );
 
 CREATE TABLE "user" (
-	"id" INTEGER NOT NULL,
+	"id" SERIAL NOT NULL,
 	"age" INTEGER NOT NULL,
 	"email" VARCHAR(255) NOT NULL,
 	"height" DECIMAL(8,2) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE "user" (
 );
 
 CREATE TABLE "eating" (
-	"id" INTEGER NOT NULL,
+	"id" SERIAL NOT NULL,
 	"date" DATE NOT NULL,
 	"time" TIME NOT NULL,
 	"user_id" INTEGER NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE "eating" (
 );
 
 CREATE TABLE "eating_dishes" (
-       "id" INTEGER NOT NULL,
+    "id" SERIAL NOT NULL,
 	"eating_id" INTEGER NOT NULL,
 	"dish_id" INTEGER NOT NULL,
 	PRIMARY KEY ("id"),

@@ -53,6 +53,22 @@ public class EatingReportResponseDto {
             this.dishList = dishList;
         }
 
+        public Integer getId() {
+            return id;
+        }
+
+        public LocalTime getTime() {
+            return time;
+        }
+
+        public BigDecimal getCalorieSum() {
+            return calorieSum;
+        }
+
+        public List<DishResponseDto> getDishList() {
+            return dishList;
+        }
+
         public void calculateAndSetCalorieSum() {
             BigDecimal calorieSum = BigDecimal.ZERO;
 
@@ -78,6 +94,18 @@ public class EatingReportResponseDto {
 
             public void setCalories(BigDecimal calories) {
                 this.calories = calories;
+            }
+
+            public Integer getId() {
+                return id;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public BigDecimal getCalories() {
+                return calories;
             }
         }
     }

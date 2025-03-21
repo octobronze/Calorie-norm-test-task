@@ -19,9 +19,9 @@ public class UserService {
     }
 
     public void createUser(UserRequestDto dto) {
-        userRepository.findByEmail(dto.getEmail())
-                .orElseThrow(() -> new BadRequestException("User with this email already exists"));
-
+        if (userRepository.existsByEmail(dto.getEmail())) {
+            throw new BadRequestException("User with this email already exists");
+        }
         User user = new User();
 
         user.setName(dto.getName());

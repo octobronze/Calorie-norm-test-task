@@ -2,6 +2,7 @@ package com.example.calorie_test_task.controllers;
 
 import com.example.calorie_test_task.dtos.EatingRequestDto;
 import com.example.calorie_test_task.services.EatingService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ public class EatingController {
     }
     @PostMapping
     public ResponseEntity<String> createEating(@RequestHeader(name = "email") String email,
-                                               @RequestBody EatingRequestDto dto) {
+                                               @RequestBody @Valid EatingRequestDto dto) {
         eatingService.createEating(email, dto);
 
         return ResponseEntity.ok("ok");

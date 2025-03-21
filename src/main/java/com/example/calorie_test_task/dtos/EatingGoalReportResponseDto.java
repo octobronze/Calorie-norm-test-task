@@ -27,4 +27,16 @@ public class EatingGoalReportResponseDto {
     public Boolean getSuccess() {
         return isSuccess;
     }
+
+    public BigDecimal getCalorieSum() {
+        return calorieSum;
+    }
+
+    public Integer getGoalIndex() {
+        return goalIndex;
+    }
+
+    public BigDecimal getGoalCalorieSum() {
+        return goalCalorieSum;
+    }
 }
